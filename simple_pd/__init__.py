@@ -1,14 +1,15 @@
 from otree.api import *
 
+
 doc = """
-Prisoner's Dilemma Game
+Your app description
 """
 
 
 class C(BaseConstants):
-    NAME_IN_URL = "simple_pd"
+    NAME_IN_URL = 'simple_pd'
     PLAYERS_PER_GROUP = 2
-    NUM_ROUNDS = 1
+    NUM_ROUNDS = 5
     PAYOFF_MATRIX = {
         ("C", "C"): [3, 3],
         ("C", "D"): [0, 5],
@@ -33,13 +34,14 @@ class Group(BaseGroup):
 class Player(BasePlayer):
     decision = models.StringField(
         choices=["C", "D"],
-        doc="This player's decision",
+        doc="This playes's decision",
         widget=widgets.RadioSelect,
         label="Choose: Cooperate (C) or Defect (D)",
     )
 
 
-class Decision(Page):
+# PAGES
+class MyPage(Page):
     form_model = "player"
     form_fields = ["decision"]
 
@@ -58,4 +60,4 @@ class Results(Page):
         }
 
 
-page_sequence = [Decision, ResultsWaitPage, Results]
+page_sequence = [MyPage, ResultsWaitPage, Results]

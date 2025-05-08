@@ -7,7 +7,7 @@ SESSION_CONFIGS = [
         num_demo_participants=2,
     ),
     dict(
-        name="simple_sd",
+        name = "simple_sd",
         app_sequence=["simple_sd"],
         num_demo_participants=3,
         players_per_group=3,
