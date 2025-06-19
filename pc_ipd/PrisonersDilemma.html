@@ -1,0 +1,49 @@
+{{ extends 'global/Page.html' }}
+{{ block title }}ゲーム (ラウンド {{ player.round_number }}){{ endblock }}
+
+{{ block content }}
+
+<div class="card">
+    <div class="card-header">利得表</div>
+    <div class="card-body">
+        <p>あなたとパートナーの選択によって、以下の利得が得られます。</p>
+        <table class="table table-bordered text-center">
+            <thead>
+                <tr>
+                    <th scope="col" rowspan="2" colspan="2" class="align-middle"></th>
+                    <th scope="col" colspan="2">相手の選択</th>
+                </tr>
+                <tr>
+                    <th scope="col">協力 (C)</th>
+                    <th scope="col">非協力 (D)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row" rowspan="2" class="align-middle">あなたの選択</th>
+                    <th scope="row">協力 (C)</th>
+                    <td>あなた: {{ payoff_CC.0 }}, 相手: {{ payoff_CC.1 }}</td>
+                    <td>あなた: {{ payoff_CD.0 }}, 相手: {{ payoff_CD.1 }}</td>
+                </tr>
+                <tr>
+                    <th scope="row">非協力 (D)</th>
+                    <td>あなた: {{ payoff_DC.0 }}, 相手: {{ payoff_DC.1 }}</td>
+                    <td>あなた: {{ payoff_DD.0 }}, 相手: {{ payoff_DD.1 }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<hr>
+
+<div class="card bg-light">
+    <div class="card-body">
+        {{ formfields }}
+    </div>
+</div>
+
+<br>
+{{ next_button }}
+
+{{ endblock }}

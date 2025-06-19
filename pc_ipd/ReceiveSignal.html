@@ -1,0 +1,30 @@
+{{ extends 'global/Page.html' }}
+{{ block title }}パートナーの選択 (ラウンド {{ player.round_number }}){{ endblock }}
+
+{{ block content }}
+
+<div class="card">
+    <div class="card-header">パートナー候補の情報</div>
+    <div class="card-body">
+        <p>パートナー候補が見つかりました。相手が送信したシグナルは以下の通りです。</p>
+        
+        <div class="text-center my-4">
+            <h3>相手のシグナル: 
+                <span style="color: #FFD700; font-size: 1.5em;">
+                    {% for i in stars_range %}
+                    ⭐️
+                    {% endfor %}
+                </span>
+                ({{ partner_signal_stars }} / 5)
+            </h3>
+        </div>
+
+        {{ formfields }}
+
+    </div>
+</div>
+
+<br>
+{{ next_button }}
+
+{{ endblock }}

@@ -1,0 +1,23 @@
+
+{{ block title }}シグナルの送信 (ラウンド {{ player.round_number }}){{ endblock }}
+
+{{ block content }}
+
+<div class="card bg-light">
+    <div class="card-body">
+        <p>
+            これから新しいパートナー候補とマッチングを行います。<br>
+            まず、シグナルをどれだけ送るか、チェックボックスによって選択してください。<br>
+            このシグナルは相手に表示されます。<br>
+            チェックボックスで選択しなかった分は、自動的に0とみなされます。
+        </p>
+        
+        {{ formfields }}
+        
+    </div>
+</div>
+
+<br>
+{{ next_button }}
+
+{{ endblock }}

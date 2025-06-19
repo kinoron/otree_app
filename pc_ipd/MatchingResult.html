@@ -1,0 +1,27 @@
+{{ extends 'global/Page.html' }}
+{{ block title }}マッチング結果 (ラウンド {{ player.round_number }}){{ endblock }}
+
+{{ block content }}
+
+{% if group.match_success %}
+    <div class="alert alert-success">
+        <h4>マッチングが成立しました！</h4>
+        <p>あなたと相手の両方が合意したため、パートナーとなりました。<br>
+        これからこのパートナーと囚人のジレンマゲームを開始します。</p>
+    </div>
+{% else %}
+    <div class="alert alert-danger">
+        <h4>マッチングは成立しませんでした</h4>
+        <p>残念ながら、あなたまたは相手が合意しなかったため、今回はパートナー不成立となりました。<br>
+        {% if player.round_number < C.NUM_ROUNDS %}
+        次のラウンドで、新しいパートナー候補とマッチングします。
+        {% else %}
+        このまま実験は終了となります。
+        {% endif %}
+        </p>
+    </div>
+{% endif %}
+
+{{ next_button }}
+
+{{ endblock }}

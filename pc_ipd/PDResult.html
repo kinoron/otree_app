@@ -1,0 +1,34 @@
+{{ extends 'global/Page.html' }}
+{{ block title }}ラウンドの結果 (ラウンド {{ player.round_number }}){{ endblock }}
+
+{{ block content }}
+
+<h4>結果</h4>
+<ul>
+    <li>あなたの選択: <strong>{{ player_decision }}</strong></li>
+    <li>相手の選択: <strong>{{ other_decision }}</strong></li>
+</ul>
+
+<div class="alert alert-info">
+    このラウンドで、あなたは <strong>{{ player.payoff }}</strong> の利得を得ました。
+</div>
+
+<hr>
+
+<h4>パートナーとの関係</h4>
+{% if continue_game %}
+<div class="alert alert-success">
+    パートナーとの関係は **継続します**。次のラウンドも同じ相手とゲームを行います。
+</div>
+{% else %}
+<div class="alert alert-warning">
+    パートナーとの関係は今回で **終了します**。
+    {% if player.round_number < C.NUM_ROUNDS %}
+    次のラウンドでは、新しいパートナーを探すことになります。
+    {% endif %}
+</div>
+{% endif %}
+
+{{ next_button }}
+
+{{ endblock }}

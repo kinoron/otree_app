@@ -18,6 +18,18 @@ SESSION_CONFIGS = [
         num_demo_participants=3,
         players_per_group=3,
     ),
+    dict(
+        name = "simple_tg",
+        app_sequence = ["simple_tg"],
+        num_demo_participants = 2,
+        players_per_group = 2,
+    ),
+    dict(
+        name = "pc_ipd",
+        app_sequence = ["pc_ipd"],
+        num_demo_participants = 4,
+        players_per_group = 2,
+    ),
 ]
 
 

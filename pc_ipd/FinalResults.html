@@ -1,0 +1,17 @@
+{{ extends 'global/Page.html' }}
+{{ block title }}最終結果{{ endblock }}
+
+{{ block content }}
+
+<div class="card">
+    <div class="card-body">
+        <h4>実験はすべて終了しました</h4>
+        <p>ご参加いただき、ありがとうございました。</p>
+        <hr>
+        <p class="lead">
+            あなたの最終的な累積利得は <strong>{{ cumulative_payoff }}</strong> でした。
+        </p>
+    </div>
+</div>
+
+{{ endblock }}
